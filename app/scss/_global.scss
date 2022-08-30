@@ -1,0 +1,259 @@
+html,
+body {
+	min-height: 100vh !important;
+	height: auto !important;
+	background: #f4f7f9;
+	-webkit-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+}
+
+.sl_wrapper{
+	display: flex;
+    flex-direction: column;
+	position: relative;
+    min-height: 100vh;
+}
+
+.sl_noscroll{
+	overflow: hidden;
+}
+
+.sl_container{
+	max-width: 1300px;
+}
+
+.sl-base_wrapper {
+	max-width: 1300px;
+	width: 100%;
+	margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.sl_header {
+	flex: 0 0 auto;
+	position: relative;
+	z-index: 2;
+}
+
+.sl_main {
+	flex: 1 0 auto;
+	position: relative;
+	z-index: 1;
+	padding-top: 20px;
+}
+
+.sl_footer {
+	flex: 0 0 auto;
+}
+
+a{
+	color: #333;
+	text-decoration: none;
+	transition: all .2s ease;
+	&:hover{
+		color: #333;
+		text-decoration: underline;
+		transition: all .2s ease;
+	}
+}
+
+h1, .h1{
+	display: block;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 30px;
+	line-height: 37px;
+	color: #00061A;
+	margin-bottom: 22px;
+}
+
+h3, .h3{
+	display: block;
+	font-style: normal;
+	font-size: 28px;
+	font-weight: 500;
+	margin-top: 40px;
+	margin-bottom: 16px;
+	color: #75787b;
+}
+
+h4, .h4{
+	display: block;
+	font-style: normal;
+	font-size: 24px;
+	font-weight: 400;
+	color: #75787b;
+	margin-bottom: 8px;	
+}
+
+.fa-phone:before {
+    display: inline-block;
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -webkit-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.inliner {
+	display: block;
+	font-size: 0; 
+	& > * {
+		display: inline-block;
+		float: none; 
+	}
+	&.vam > * {
+		vertical-align: middle; 
+	}
+}
+	
+.sl-form-group{
+	margin-bottom: 15px;
+	.sl-title{
+		display: block;
+		padding-bottom: 25px;
+		font-style: normal;
+		font-weight: 600;
+		font-size: 18px;
+		line-height: 22px;
+		color: #00061A;
+	}
+}
+	
+
+/* ----------------- UTILS ------------- */
+@for $i from 1 to 5 {
+	.mb-#{$i}{
+		margin-top: #{$i}rem;
+	}
+}
+
+.mobile-show{
+	display: none;
+}
+
+.desktop-show{
+	display: block;
+}
+
+@media (max-width: $tablets){
+	.mobile-show{
+		display: block !important;
+	}
+	
+	.desktop-show{
+		display: none;
+	}
+}
+
+/* ----------------- TXT ---------------- */
+.hidden{
+	display: none;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.text-right{
+	text-align: right;
+}
+
+p{
+	margin-bottom: 15px;
+}
+
+/* ----------------- LAYOUT ------------- */
+.sl-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.sl-align-items-center {
+    -ms-flex-align: center!important;
+    align-items: center!important;
+}
+
+.d-col {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+@for $i from 1 to 13 {
+	$percent: $i/12 * 100;
+	.d-col-#{$i},
+	.d-col-sm-#{$i},
+	.d-col-md-#{$i},
+	.d-col-lg-#{$i},
+	.d-col-xl-#{$i}
+	.d-col-xxl-#{$i} {
+		position: relative;
+		width: 100%;
+		min-height: 1px;
+		padding-right: 15px;
+		padding-left: 15px;
+	}
+}
+
+
+@for $i from 1 to 13 {
+	$percent: $i/12 * 100;
+	.d-col-#{$i} {
+		flex: 0 0 auto;
+		width: #{$percent}#{'%'};
+	}
+}
+
+@media (min-width: $big-phones){
+	@for $i from 1 to 13 {
+		$percent: $i/12 * 100;
+		.d-col-sm-#{$i} {
+			flex: 0 0 auto;
+			width: #{$percent}#{'%'};
+		}
+	}
+}
+@media (min-width: $small-tablets){
+	@for $i from 1 to 13 {
+		$percent: $i/12 * 100;
+		.d-col-md-#{$i} {
+			flex: 0 0 auto;
+			width: #{$percent}#{'%'};
+		}
+	}
+}
+@media (min-width: $tablets){
+	@for $i from 1 to 13 {
+		$percent: $i/12 * 100;
+		.d-col-lg-#{$i} {
+			flex: 0 0 auto;
+			width: #{$percent}#{'%'};
+		}
+	}
+}
+@media (min-width: $small-desktop){
+	@for $i from 1 to 13 {
+		$percent: $i/12 * 100;
+		.d-col-xl-#{$i} {
+			flex: 0 0 auto;
+			width: #{$percent}#{'%'};
+		}
+	}
+}
+@media (min-width: $desktop){
+	@for $i from 1 to 13 {
+		$percent: $i/12 * 100;
+		.d-col-xxl-#{$i} {
+			flex: 0 0 auto;
+			width: #{$percent}#{'%'};
+		}
+	}
+}
+/* ----------------- / LAYOUT ------------- */
